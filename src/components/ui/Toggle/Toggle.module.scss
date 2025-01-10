@@ -1,0 +1,55 @@
+@use '@/styles/mixin.scss';
+
+.wrapper {
+  border-radius: 24px;
+
+  @include mixin.respond(tabletS) {
+    width: 100%;
+  }
+
+  .toggle {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    border-radius: 24px;
+    margin: 4px;
+    transition: transform 0.3s ease;
+
+    .indicator {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background-color: var(--white);
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+      z-index: 0;
+    }
+
+    .left {
+      transform: translate(0%);
+    }
+
+    .right {
+      transform: translate(100%);
+    }
+
+    .button {
+      width: 50%;
+      border-radius: 24px;
+      padding: 8px 30px;
+      transition: all 0.3s ease;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .text {
+        font-size: 24px;
+      }
+    }
+
+    .active {
+      color: var(--black);
+    }
+  }
+}
