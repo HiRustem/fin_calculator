@@ -3,13 +3,75 @@
   flex-direction: column;
   gap: 10px;
 
+  width: fit-content;
+  max-width: 175px;
+
   .monthPicker {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .monthButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 20px;
+      height: 20px;
+
+      .arrow {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .month {
+
+    }
   }
 
   .calendar {
     display: flex;
     flex-direction: column;
     gap: 5px;
+
+    .weekDaysList {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      .weekDay {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .daysContainer {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+  
+      .days {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+  
+        flex-wrap: wrap;
+
+        .emptyDay {
+          width: 20px;
+          height: 20px;
+        }
+        
+        .dayItem {
+          flex-basis: 20px;
+          height: 20px;
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    
   }
 }
