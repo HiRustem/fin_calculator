@@ -3,6 +3,7 @@ declare const classNames: {
   readonly monthPicker: "monthPicker";
   readonly monthButton: "monthButton";
   readonly arrow: "arrow";
+  readonly month: "month";
   readonly calendar: "calendar";
   readonly weekDaysList: "weekDaysList";
   readonly weekDay: "weekDay";
@@ -10,5 +11,6 @@ declare const classNames: {
   readonly days: "days";
   readonly emptyDay: "emptyDay";
   readonly dayItem: "dayItem";
+  readonly selected: "selected";
 };
 export = classNames;

@@ -1,8 +1,6 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { ReactNode } from "react";
 
-import styles from "./Dropdown.module.scss";
-
 interface IDropdown {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
@@ -38,7 +36,6 @@ const Dropdown = ({
           align={align}
           side={side}
           sideOffset={sideOffset}
-          className={styles.content}
         >
           {content}
         </DropdownMenu.Content>

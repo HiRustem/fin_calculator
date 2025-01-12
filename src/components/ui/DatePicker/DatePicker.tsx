@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DatePickerDirection } from "./model/type";
 import Dropdown from "../Dropdown/Dropdown";
-import { DatePickerContent, DatePickerTrigger } from "./ui";
+import { DatePickerContent } from "./ui";
 
 interface IDatePicker {
   value: Date;
@@ -41,13 +41,13 @@ const Datepicker = ({ value, onChange }: IDatePicker) => {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       trigger={
-        <span>
+        <button>
           {selectedDate.toLocaleDateString("ru-RU", {
             year: "numeric",
             month: "long",
             day: "numeric",
           })}
-        </span>
+        </button>
       }
       content={
         <DatePickerContent

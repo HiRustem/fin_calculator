@@ -5,21 +5,7 @@ import IconChevronRight from "@/assets/chevron-right.svg?react";
 
 import styles from "./DatePickerContent.module.scss";
 import clsx from "clsx";
-
-const months = [
-  "Январь",
-  "Февраль",
-  "Март",
-  "Апрель",
-  "Май",
-  "Июнь",
-  "Июль",
-  "Август",
-  "Сентябрь",
-  "Октябрь",
-  "Ноябрь",
-  "Декабрь",
-];
+import { months } from "../../model/consts";
 
 interface IDatePickerContent {
   selectedDate: Date;
@@ -83,7 +69,9 @@ const DatePickerContent = ({
               return (
                 <button
                   key={day}
-                  className={clsx(styles.dayItem)}
+                  className={clsx(styles.dayItem, {
+                    [styles.selected]: isSelected,
+                  })}
                   onClick={() => handleDayClick(day)}
                 >
                   {day}

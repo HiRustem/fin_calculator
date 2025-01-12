@@ -3,8 +3,10 @@
   flex-direction: column;
   gap: 10px;
 
-  width: fit-content;
-  max-width: 175px;
+  padding: 10px;
+
+  border-radius: 12px;
+  background-color: var(--white);
 
   .monthPicker {
     display: flex;
@@ -16,62 +18,74 @@
       align-items: center;
       justify-content: center;
 
-      width: 20px;
-      height: 20px;
+      width: var(--date_picker_cell_side);
+      height: var(--date_picker_cell_side);
 
       .arrow {
         width: 100%;
         height: 100%;
+
+        color: var(--text_tertiary);
+
+        &:hover {
+          color: var(--black);
+        }
       }
     }
 
     .month {
-
+      font-weight: 700;
     }
   }
 
   .calendar {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: var(--date_picker_gap);
 
     .weekDaysList {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: var(--date_picker_gap);
 
       .weekDay {
-        width: 20px;
-        height: 20px;
+        width: var(--date_picker_cell_side);
+        height: var(--date_picker_cell_side);
+
+        color: var(--text_tertiary);
       }
     }
 
     .daysContainer {
       display: flex;
       align-items: center;
-      gap: 5px;
-  
+      gap: var(--date_picker_gap);
+
       .days {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-  
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(7, var(--date_picker_cell_side));
+        gap: var(--date_picker_gap);
+
+        font-weight: 700;
 
         .emptyDay {
-          width: 20px;
-          height: 20px;
+          width: var(--date_picker_cell_side);
+          height: var(--date_picker_cell_side);
         }
-        
+
         .dayItem {
-          flex-basis: 20px;
-          height: 20px;
-          flex-grow: 0;
-          flex-shrink: 0;
+          width: var(--date_picker_cell_side);
+          height: var(--date_picker_cell_side);
+
+          &:hover {
+            color: var(--yellow);
+          }
+
+          &.selected {
+            color: var(--yellow);
+          }
         }
       }
     }
-
-    
   }
 }
