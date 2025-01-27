@@ -30,7 +30,7 @@ const Input = forwardRef<IInputRef, IInputProps>(
         focus: () => inputRef.current?.focus(),
         inputID,
       }),
-      [inputID, inputRef.current]
+      [inputID]
     );
 
     return (
@@ -42,7 +42,11 @@ const Input = forwardRef<IInputRef, IInputProps>(
         )}
       >
         <div className={styles.wrapper}>
-          <div className={styles.inputWrapper}>
+          <div
+            className={clsx(styles.inputWrapper, {
+              [styles.blockRight]: blockRight,
+            })}
+          >
             <input
               ref={inputRef}
               id={inputID}
@@ -64,7 +68,7 @@ const Input = forwardRef<IInputRef, IInputProps>(
             )}
           </div>
 
-          {blockRight}
+          {blockRight && blockRight}
         </div>
         {error && <span className={styles.error}>{error}</span>}
       </div>

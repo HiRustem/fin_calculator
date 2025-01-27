@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  max-width: 1080px;
+
+  padding: 40px 60px;
+
+  row-gap: 10px;
+  column-gap: 10px;
+
+  .formItem {
+    flex-basis: 306px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}

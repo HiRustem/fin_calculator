@@ -1,0 +1,40 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 60px;
+
+  padding: 10px;
+
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+
+  .text {
+    max-width: 20px;
+    max-height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+  }
+
+  .chevronWrapper {
+    max-width: 20px;
+    max-height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+
+    .chevron {
+      width: 100%;
+      height: 100%;
+
+      stroke-width: 2px;
+
+      transition: all 0.2s ease-in;
+
+      &.opened {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

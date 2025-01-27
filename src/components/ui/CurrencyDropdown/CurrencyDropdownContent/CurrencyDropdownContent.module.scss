@@ -1,0 +1,33 @@
+.list {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: var(--border-radius-l);
+  background-color: var(--white);
+
+  overflow: hidden;
+
+  .item {
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+
+      padding: 10px 40px;
+
+      border-radius: var(--border-radius-l);
+
+      font-size: 20px;
+      font-weight: 700;
+
+      &:hover,
+      &:active {
+        color: var(--yellow);
+      }
+    }
+  }
+}
