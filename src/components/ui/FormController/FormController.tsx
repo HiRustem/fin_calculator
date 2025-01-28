@@ -1,5 +1,5 @@
 import { ElementType } from "react";
-import { RegisterOptions, useController } from "react-hook-form";
+import { Controller, RegisterOptions, useFormContext } from "react-hook-form";
 
 interface IFormController<T> {
   name: string;
@@ -18,21 +18,24 @@ const FormController = <T,>({
   className,
   props,
 }: IFormController<T>) => {
-  const { field, fieldState } = useController({
-    name,
-    rules,
-    ...props,
-  });
+  const { control } = useFormContext();
 
   return (
-    <Component
-      className={className}
-      {...field}
-      {...fieldState}
+    <Controller
       name={name}
-      label={label}
-      error={fieldState.error?.message}
-      {...props}
+      rules={rules}
+      control={control}
+      render={({ field: { onChange, value }, fieldState: { error } }) => (
+        <Component
+          className={className}
+          name={name}
+          label={label}
+          {...props}
+          value={value}
+          onChange={onChange}
+          error={error}
+        />
+      )}
     />
   );
 };
