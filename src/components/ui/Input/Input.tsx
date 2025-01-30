@@ -1,9 +1,12 @@
 import { forwardRef, useId, useImperativeHandle, useRef } from "react";
+
 import { IInputProps, IInputRef } from "./model/types";
 import styles from "./Input.module.scss";
+import MaskedInput, { MaskedInputProps } from "react-text-mask";
+
 import clsx from "clsx";
 
-const Input = forwardRef<IInputRef, IInputProps>(
+const Input = forwardRef<IInputRef, IInputProps & MaskedInputProps>(
   (
     {
       className,
@@ -16,6 +19,9 @@ const Input = forwardRef<IInputRef, IInputProps>(
       labelTextClassName,
       onBlur,
       onFocus,
+      mask,
+      pipe,
+      guide,
       ...inputProps
     },
     ref
@@ -47,16 +53,31 @@ const Input = forwardRef<IInputRef, IInputProps>(
               [styles.blockRight]: blockRight,
             })}
           >
-            <input
-              ref={inputRef}
-              id={inputID}
-              onChange={onChange}
-              onBlur={onBlur}
-              onFocus={onFocus}
-              className={styles.input}
-              placeholder=" "
-              {...inputProps}
-            />
+            {mask ? (
+              <MaskedInput
+                mask={mask}
+                showMask={true}
+                pipe={pipe}
+                guide={guide}
+                id={inputID}
+                onChange={onChange}
+                onBlur={onBlur}
+                onFocus={onFocus}
+                className={styles.input}
+                {...inputProps}
+              />
+            ) : (
+              <input
+                ref={inputRef}
+                id={inputID}
+                onChange={onChange}
+                onBlur={onBlur}
+                onFocus={onFocus}
+                className={styles.input}
+                {...inputProps}
+              />
+            )}
+
             {label && (
               <label
                 className={clsx(styles.labelText, labelTextClassName)}

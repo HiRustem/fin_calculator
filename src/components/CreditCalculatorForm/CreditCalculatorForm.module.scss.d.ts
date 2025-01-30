@@ -1,5 +1,6 @@
 declare const classNames: {
   readonly form: "form";
-  readonly formItem: "formItem";
+  readonly fields: "fields";
+  readonly formField: "formField";
 };
 export = classNames;

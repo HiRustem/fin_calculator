@@ -37,9 +37,9 @@
 
   &:focus + .labelText,
   &:not(:placeholder-shown) + .labelText {
-    top: 5px;
-    left: 0px;
-    transform: scale(0.78);
+    top: 20px;
+    left: 20px;
+    font-size: 14px;
   }
 }
 

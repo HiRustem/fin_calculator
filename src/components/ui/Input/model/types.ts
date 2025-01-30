@@ -1,3 +1,4 @@
+import { Mask } from "@react-input/mask";
 import { ChangeEvent, InputHTMLAttributes, ReactNode } from "react";
 
 export interface IInputRef {
@@ -15,4 +16,9 @@ export interface IInputProps
   labelTextClassName?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   rightLabel?: string | JSX.Element;
+}
+
+export interface MaskProps {
+  mask?: Mask | ((value: string) => Mask);
+  pipe?: (conformedValue: string) => string;
 }
