@@ -4,3 +4,5 @@ export { default as DatePicker } from "./DatePicker/DatePicker";
 export { default as Tooltip } from "./Tooltip/Tooltip";
 export * from "./FormComponents";
 export * from "./CurrencyDropdown";
+export * from "./CreditStartDropdown";
+export * from "./CreditRepaymentProcedure";

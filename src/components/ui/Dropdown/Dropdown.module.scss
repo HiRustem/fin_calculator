@@ -2,10 +2,16 @@
   cursor: pointer;
 }
 
+.fullWidthTrigger {
+  width: 100%;
+}
+
 .content {
   width: 100%;
 
   border-radius: var(--border-radius-l);
+
+  background-color: var(--white);
 
   box-shadow:
     0px 10px 38px -10px rgba(22, 23, 24, 0.35),

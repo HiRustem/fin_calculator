@@ -29,7 +29,7 @@ const PeriodDropdown = ({ selected, onSelect }: IPeriodDropdown) => {
       content={
         <PeriodDropdownContent selected={selected} onSelect={onSelectHandler} />
       }
-      thiggerClassName={styles.trigger}
+      triggerClassName={styles.trigger}
     />
   );
 };

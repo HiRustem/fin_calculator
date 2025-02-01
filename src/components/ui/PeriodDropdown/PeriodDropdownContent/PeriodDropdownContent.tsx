@@ -22,7 +22,7 @@ const PeriodDropdownContent = ({
           })}
         >
           <button
-            className={styles.text}
+            className={styles.button}
             onClick={() => {
               onSelect(option);
             }}

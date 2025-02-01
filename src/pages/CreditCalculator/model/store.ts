@@ -2,15 +2,24 @@ import { creditCalculatorDefaultValues } from "@/components/CreditCalculatorForm
 import { create } from "zustand";
 
 import { immer } from "zustand/middleware/immer";
-import { CalculatorCurrency, CalculatorType, CreditPeriodType } from "./types";
+import {
+  CalculatorCurrency,
+  CalculatorType,
+  CreditPeriodType,
+  CreditRepaymentFrequency,
+  CreditRepaymentProcedure,
+} from "./types";
 
 type ICreditCalculatorStoreState = {
   calculatorType: CalculatorType;
   creditCurrency: CalculatorCurrency;
   creditPeriodType: CreditPeriodType;
+  creditRepaymentProcedure: CreditRepaymentProcedure;
+  creditRepaymentFrequency: CreditRepaymentFrequency;
   creditAmount: string;
   creditPercent: string;
   creditPeriod: string;
+  creditStart: string;
 };
 
 type ICreditCalculatorStoreActions = {
@@ -27,6 +36,8 @@ const creditCalculatorDefaultState: ICreditCalculatorStoreState = {
   calculatorType: "creditSum",
   creditCurrency: "₽",
   creditPeriodType: "года",
+  creditRepaymentProcedure: "Дифференцированный",
+  creditRepaymentFrequency: "Ежемесячно",
   ...creditCalculatorDefaultValues,
 };
 

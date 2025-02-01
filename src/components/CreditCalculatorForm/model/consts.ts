@@ -1,9 +1,11 @@
+import { getCreditStartDate } from "@/utils/helpers/getFormattedDate";
 import { RegisterOptions } from "react-hook-form";
 
 export const creditCalculatorDefaultValues = {
   creditAmount: "100000",
   creditPercent: "5",
   creditPeriod: "3",
+  creditStart: getCreditStartDate(new Date()),
 };
 
 export const creditAmountRules: RegisterOptions = {

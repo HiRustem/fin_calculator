@@ -1,4 +1,4 @@
-import { forwardRef, useId, useImperativeHandle, useRef } from "react";
+import React, { forwardRef, useId, useImperativeHandle, useRef } from "react";
 
 import { IInputProps, IInputRef } from "./model/types";
 import styles from "./Input.module.scss";
@@ -63,6 +63,7 @@ const Input = forwardRef<IInputRef, IInputProps & MaskedInputProps>(
                 onBlur={onBlur}
                 onFocus={onFocus}
                 className={styles.input}
+                placeholder=""
                 {...inputProps}
               />
             ) : (
@@ -73,6 +74,7 @@ const Input = forwardRef<IInputRef, IInputProps & MaskedInputProps>(
                 onBlur={onBlur}
                 onFocus={onFocus}
                 className={styles.input}
+                placeholder=""
                 {...inputProps}
               />
             )}
@@ -96,4 +98,4 @@ const Input = forwardRef<IInputRef, IInputProps & MaskedInputProps>(
   }
 );
 
-export default Input;
+export default React.memo(Input);

@@ -24,8 +24,8 @@ const FormController = <T,>({
             className={className}
             name={name}
             label={label}
-            {...props}
             value={field.value}
+            {...props}
             onChange={
               onChangeHandler?.({ field, fieldState, formState }) ??
               field.onChange

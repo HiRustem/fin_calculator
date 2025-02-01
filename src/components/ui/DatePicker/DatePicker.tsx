@@ -1,14 +1,26 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { DatePickerDirection } from "./model/type";
 import Dropdown from "../Dropdown/Dropdown";
 import { DatePickerContent } from "./ui";
+import IconCalendar from "@/assets/calendar.svg?react";
+
+import styles from "./DatePicker.module.scss";
 
 interface IDatePicker {
   value: Date;
   onChange: (newDate: Date) => void;
+  trigger?: ReactNode;
+  triggerClassName?: string;
+  fullWidthTrigger?: boolean;
 }
 
-const Datepicker = ({ value, onChange }: IDatePicker) => {
+const Datepicker = ({
+  value,
+  onChange,
+  trigger,
+  triggerClassName,
+  fullWidthTrigger,
+}: IDatePicker) => {
   const today = new Date();
   const [selectedDate, setSelectedDate] = useState(value || today);
   const [currentYear, setCurrentYear] = useState(selectedDate.getFullYear());
@@ -41,14 +53,18 @@ const Datepicker = ({ value, onChange }: IDatePicker) => {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       trigger={
-        <button>
-          {selectedDate.toLocaleDateString("ru-RU", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </button>
+        trigger ? (
+          trigger
+        ) : (
+          <div className={styles.trigger}>
+            <div className={styles.iconWrapper}>
+              <IconCalendar className={styles.icon} />
+            </div>
+          </div>
+        )
       }
+      fullWidthTrigger={fullWidthTrigger}
+      triggerClassName={triggerClassName}
       content={
         <DatePickerContent
           selectedDate={selectedDate}

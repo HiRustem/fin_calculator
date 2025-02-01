@@ -12,12 +12,17 @@ import {
   percentPipe,
 } from "./model/consts";
 
-import { FormInput } from "../ui";
+import {
+  CreditRepaymentProcedure,
+  CreditStartDropdown,
+  FormInput,
+} from "../ui";
 
 import styles from "./CreditCalculatorForm.module.scss";
 import useCreditCalculatorStore from "@/pages/CreditCalculator/model/store";
 import PeriodDropdown from "../ui/PeriodDropdown/PeriodDropdown";
 import { CreditPeriodType } from "@/pages/CreditCalculator/model/types";
+import CreditRepaymentFrequency from "../ui/CreditRepaymentFrequency/CreditRepaymentFrequency";
 
 const CreditCalculatorForm = () => {
   // const [, setCurrency] = useState<string>("₽");
@@ -25,7 +30,6 @@ const CreditCalculatorForm = () => {
   const { setValue, creditPeriodType } = useCreditCalculatorStore(
     useShallow((state) => ({
       setValue: state.setValue,
-      getValue: state.getValue,
       creditPeriodType: state.creditPeriodType,
     }))
   );
@@ -99,6 +103,18 @@ const CreditCalculatorForm = () => {
                 />
               ),
             }}
+          />
+
+          <CreditStartDropdown className={styles.formField} />
+
+          <CreditRepaymentProcedure
+            className={styles.formField}
+            contentClassName={styles.formFieldWidth}
+          />
+
+          <CreditRepaymentFrequency
+            className={styles.formField}
+            contentClassName={styles.formFieldWidth}
           />
         </div>
 

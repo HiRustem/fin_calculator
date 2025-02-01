@@ -1,6 +1,6 @@
 declare const classNames: {
   readonly trigger: "trigger";
-  readonly fullWidthTrigger: "fullWidthTrigger";
-  readonly content: "content";
+  readonly iconWrapper: "iconWrapper";
+  readonly icon: "icon";
 };
 export = classNames;
