@@ -22,7 +22,7 @@ import { CreditPeriodType } from "@/pages/CreditCalculator/model/types";
 const CreditCalculatorForm = () => {
   // const [, setCurrency] = useState<string>("₽");
 
-  const { setValue, getValue, creditPeriodType } = useCreditCalculatorStore(
+  const { setValue, creditPeriodType } = useCreditCalculatorStore(
     useShallow((state) => ({
       setValue: state.setValue,
       getValue: state.getValue,

@@ -1,9 +1,10 @@
 {
+  "routes": [
+      { "src": "/credit_calculator", "dest": "/" },
+      { "src": "*", "dest": "/"}
+    ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
+    {"source": "/(.*)", "destination": "/"}
   ],
   "builds": [
     {
