@@ -1,8 +1,9 @@
 import { RegisterOptions } from "react-hook-form";
 
-export const defaultValues = {
+export const creditCalculatorDefaultValues = {
   creditAmount: "100000",
   creditPercent: "5",
+  creditPeriod: "3",
 };
 
 export const creditAmountRules: RegisterOptions = {

@@ -2,8 +2,6 @@ import { useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import CurrencyDropdownContent from "./CurrencyDropdownContent/CurrencyDropdownContent";
 
-import CurrencyDropdownTrigger from "./CurrencyDropdownTrigger/CurrencyDropdownTrigger";
-
 interface ICurrencyDropdown {
   options: string[];
   onSelect: (value: string) => void;
@@ -23,7 +21,7 @@ const CurrencyDropdown = ({ options, onSelect }: ICurrencyDropdown) => {
     <Dropdown
       isOpen={isOpen}
       setIsOpen={setIsOpen}
-      trigger={<CurrencyDropdownTrigger selected={selected} isOpen={isOpen} />}
+      selected={selected}
       sideOffset={20}
       align="center"
       side="bottom"

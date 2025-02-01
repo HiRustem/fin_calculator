@@ -1,4 +1,3 @@
-
 *,
 *::before,
 *::after {
@@ -55,7 +54,7 @@ textarea {
 }
 
 button {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 img {

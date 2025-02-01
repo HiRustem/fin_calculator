@@ -1,26 +1,39 @@
-import { FormEvent } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 import { FormProvider, useForm } from "react-hook-form";
+
+import { useShallow } from "zustand/react/shallow";
 
 import {
   createPercentMask,
   creditAmountRules,
+  creditCalculatorDefaultValues,
   creditPercentRules,
-  defaultValues,
   percentPipe,
 } from "./model/consts";
 
 import { FormInput } from "../ui";
 
 import styles from "./CreditCalculatorForm.module.scss";
+import useCreditCalculatorStore from "@/pages/CreditCalculator/model/store";
+import PeriodDropdown from "../ui/PeriodDropdown/PeriodDropdown";
+import { CreditPeriodType } from "@/pages/CreditCalculator/model/types";
 
 const CreditCalculatorForm = () => {
   // const [, setCurrency] = useState<string>("₽");
 
+  const { setValue, getValue, creditPeriodType } = useCreditCalculatorStore(
+    useShallow((state) => ({
+      setValue: state.setValue,
+      getValue: state.getValue,
+      creditPeriodType: state.creditPeriodType,
+    }))
+  );
+
   const methods = useForm({
     mode: "onChange",
     reValidateMode: "onChange",
-    defaultValues,
+    defaultValues: creditCalculatorDefaultValues,
   });
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -40,6 +53,12 @@ const CreditCalculatorForm = () => {
             name="creditAmount"
             rules={creditAmountRules}
             className={styles.formField}
+            onChangeHandler={({ field }) => {
+              return (event: ChangeEvent<HTMLInputElement>) => {
+                setValue("creditAmount", event.target.value);
+                field.onChange(event.target.value);
+              };
+            }}
           />
 
           <FormInput
@@ -51,6 +70,34 @@ const CreditCalculatorForm = () => {
               mask: createPercentMask,
               pipe: percentPipe,
               guide: true,
+            }}
+            onChangeHandler={({ field }) => {
+              return (event: ChangeEvent<HTMLInputElement>) => {
+                setValue("creditPercent", event.target.value);
+                field.onChange(event.target.value);
+              };
+            }}
+          />
+
+          <FormInput
+            label="Срок кредита/займа"
+            name="creditPeriod"
+            className={styles.formField}
+            onChangeHandler={({ field }) => {
+              return (event: ChangeEvent<HTMLInputElement>) => {
+                setValue("creditPeriod", event.target.value);
+                field.onChange(event.target.value);
+              };
+            }}
+            props={{
+              blockRight: (
+                <PeriodDropdown
+                  selected={creditPeriodType}
+                  onSelect={(value: CreditPeriodType) => {
+                    setValue("creditPeriodType", value);
+                  }}
+                />
+              ),
             }}
           />
         </div>

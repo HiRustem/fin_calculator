@@ -56,7 +56,6 @@ const Input = forwardRef<IInputRef, IInputProps & MaskedInputProps>(
             {mask ? (
               <MaskedInput
                 mask={mask}
-                showMask={true}
                 pipe={pipe}
                 guide={guide}
                 id={inputID}

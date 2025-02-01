@@ -1,9 +1,11 @@
 .trigger {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  max-width: 60px;
+  width: fit-content;
 
   padding: 10px;
 
@@ -11,24 +13,21 @@
   line-height: 20px;
   font-weight: 700;
 
-  .text {
-    max-width: 20px;
-    max-height: 20px;
-    min-width: 20px;
-    min-height: 20px;
-  }
+  z-index: 1000;
+
+  cursor: pointer !important;
 
   .chevronWrapper {
     max-width: 20px;
-    max-height: 20px;
+    max-height: 17px;
     min-width: 20px;
-    min-height: 20px;
+    min-height: 17px;
 
     .chevron {
       width: 100%;
       height: 100%;
 
-      stroke-width: 2px;
+      stroke-width: 3px;
 
       transition: all 0.2s ease-in;
 
