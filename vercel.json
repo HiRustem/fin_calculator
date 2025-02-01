@@ -3,9 +3,6 @@
       { "src": "/credit_calculator", "dest": "/credit_calculator" },
       { "src": "*", "dest": "/credit_calculator"}
     ],
-  "rewrites": [
-    {"source": "/(.*)", "destination": "/"}
-  ],
   "builds": [
     {
       "src": "src/index.tsx",
