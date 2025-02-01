@@ -1,7 +1,7 @@
 {
   "routes": [
-      { "src": "/credit_calculator", "dest": "/" },
-      { "src": "*", "dest": "/"}
+      { "src": "/credit_calculator", "dest": "/credit_calculator" },
+      { "src": "*", "dest": "/credit_calculator"}
     ],
   "rewrites": [
     {"source": "/(.*)", "destination": "/"}
