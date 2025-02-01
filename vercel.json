@@ -1,7 +1,7 @@
 {
   "routes": [
-      { "src": "/credit_calculator", "dest": "/credit_calculator" },
-      { "src": "*", "dest": "/credit_calculator"}
+      { "src": "/credit_calculator", "dest": "/" },
+      { "src": "^*$", "dest": "/"}
     ],
   "builds": [
     {
