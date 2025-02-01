@@ -1,12 +1,8 @@
 {
-  "routes": [
-      { "src": "/credit_calculator", "dest": "/credit_calculator"},
-      { "src": "/", "dest": "/" }
-    ],
-  "builds": [
-    {
-      "src": "src/index.tsx",
-      "use": "@vercel/node"
-    }
-  ]
+  "rewrites": [
+    { "source": "/credit_calculator", "destination": "/" },
+    { "source": "/(.*)", "destination": "/" }
+  ],
+  "builds": [{ "src": "package.json", "use": "@vercel/static-build" }]
+
 }
