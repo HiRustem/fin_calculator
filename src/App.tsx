@@ -8,7 +8,7 @@ const App = () => {
       <Routes>
         <Route path="/credit_calculator" element={<CreditCalculator />} />
         <Route
-          path="*"
+          path="/"
           element={<Navigate to="/credit_calculator" replace />}
         />
       </Routes>

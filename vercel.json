@@ -1,6 +1,5 @@
 {
   "routes": [
-      { "src": "/credit_calculator", "dest": "/credit_calculator" },
       { "src": "/", "dest": "/" }
     ],
   "builds": [
