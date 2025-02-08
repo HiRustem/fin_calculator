@@ -1,3 +1,4 @@
+import { CreditPartialType } from "@/pages/CreditCalculator/model/types";
 import { getCreditStartDate } from "@/utils/helpers/getFormattedDate";
 import { RegisterOptions } from "react-hook-form";
 
@@ -6,6 +7,15 @@ export const creditCalculatorDefaultValues = {
   creditPercent: "5",
   creditPeriod: "3",
   creditStart: getCreditStartDate(new Date()),
+  creditOneTimeCommission: "0",
+  creditMounthlyCommission: "0",
+  creditRescheduleOnMonday: false,
+  creditEarlyRepayment: false,
+  creditEarlyRepaymentDate: getCreditStartDate(new Date()),
+  creditPartialRepayment: {
+    creditPartialRepaymentArray: [],
+    creditPartialType: "с сохранением суммы платежа" as CreditPartialType,
+  },
 };
 
 export const creditAmountRules: RegisterOptions = {

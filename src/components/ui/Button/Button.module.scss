@@ -1,0 +1,17 @@
+.button {
+  display: flex;
+  align-items: center;
+
+  .iconWrapper {
+    max-width: 20px;
+    min-width: 20px;
+    max-height: 20px;
+    min-height: 20px;
+  }
+
+  .text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+}

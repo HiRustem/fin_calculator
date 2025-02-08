@@ -1,0 +1,27 @@
+.container {
+  .repaymentsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .repaymentsHeading {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+    .icon {
+      max-width: 20px;
+      min-width: 20px;
+      max-height: 20px;
+      min-height: 20px;
+
+      stroke-width: 2px;
+    }
+
+    .addButton {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

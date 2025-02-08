@@ -1,0 +1,35 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  width: 100%;
+
+  .item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    width: 100%;
+
+    .datePicker {
+      flex-basis: 306px;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      .icon {
+        max-width: 20px;
+        max-height: 20px;
+        min-width: 20px;
+        min-height: 20px;
+      }
+    }
+
+    .input {
+      flex-basis: 306px;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+}

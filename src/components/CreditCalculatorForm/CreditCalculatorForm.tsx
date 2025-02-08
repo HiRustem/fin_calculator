@@ -13,6 +13,7 @@ import {
 } from "./model/consts";
 
 import {
+  CreditPartialRepayment,
   CreditRepaymentProcedure,
   CreditStartDropdown,
   FormInput,
@@ -23,14 +24,24 @@ import useCreditCalculatorStore from "@/pages/CreditCalculator/model/store";
 import PeriodDropdown from "../ui/PeriodDropdown/PeriodDropdown";
 import { CreditPeriodType } from "@/pages/CreditCalculator/model/types";
 import CreditRepaymentFrequency from "../ui/CreditRepaymentFrequency/CreditRepaymentFrequency";
+import FormCheckbox from "../ui/FormComponents/FormCheckbox/FormCheckbox";
+import { CreditEarlyRepaymentDate } from "../ui/CreditEarlyRepaymentDate";
+import { getCreditStartDate } from "@/utils/helpers/getFormattedDate";
 
 const CreditCalculatorForm = () => {
   // const [, setCurrency] = useState<string>("₽");
 
-  const { setValue, creditPeriodType } = useCreditCalculatorStore(
+  const {
+    setValue,
+    creditPeriodType,
+    creditRescheduleOnMonday,
+    creditEarlyRepayment,
+  } = useCreditCalculatorStore(
     useShallow((state) => ({
       setValue: state.setValue,
       creditPeriodType: state.creditPeriodType,
+      creditRescheduleOnMonday: state.creditRescheduleOnMonday,
+      creditEarlyRepayment: state.creditEarlyRepayment,
     }))
   );
 
@@ -116,6 +127,79 @@ const CreditCalculatorForm = () => {
             className={styles.formField}
             contentClassName={styles.formFieldWidth}
           />
+
+          <FormInput
+            label="Единовременная комиссия"
+            name="creditOneTimeCommission"
+            className={styles.formField}
+            onChangeHandler={({ field }) => {
+              return (event: ChangeEvent<HTMLInputElement>) => {
+                const formattedValue = event.target.value.replace(/^0+/, "");
+
+                setValue("creditOneTimeCommission", formattedValue);
+                field.onChange(formattedValue);
+              };
+            }}
+          />
+
+          <FormInput
+            label="Ежемесячная комиссия"
+            name="creditMounthlyCommission"
+            className={styles.formField}
+            onChangeHandler={({ field }) => {
+              return (event: ChangeEvent<HTMLInputElement>) => {
+                const formattedValue = event.target.value.replace(/^0+/, "");
+
+                setValue("creditMounthlyCommission", formattedValue);
+                field.onChange(formattedValue);
+              };
+            }}
+          />
+
+          <FormCheckbox
+            label="Переносить даты платежей на понедельник"
+            name="creditRescheduleOnMonday"
+            onChangeHandler={({ field }) => {
+              return (event: ChangeEvent<HTMLInputElement>) => {
+                setValue("creditRescheduleOnMonday", event.target.checked);
+                field.onChange(event.target.checked);
+              };
+            }}
+            className={styles.formField}
+            props={{
+              checked: creditRescheduleOnMonday,
+            }}
+          />
+
+          <FormCheckbox
+            label="Досрочное погашение"
+            name="creditEarlyRepayment"
+            onChangeHandler={({ field }) => {
+              return (event: ChangeEvent<HTMLInputElement>) => {
+                if (!event.target.checked) {
+                  setValue(
+                    "creditEarlyRepaymentDate",
+                    getCreditStartDate(new Date())
+                  );
+                }
+
+                setValue("creditEarlyRepayment", event.target.checked);
+                field.onChange(event.target.checked);
+              };
+            }}
+            className={styles.formField}
+            props={{
+              checked: creditEarlyRepayment,
+            }}
+          />
+
+          {creditEarlyRepayment && (
+            <CreditEarlyRepaymentDate className={styles.formField} />
+          )}
+        </div>
+
+        <div>
+          <CreditPartialRepayment />
         </div>
 
         <button disabled={!methods.formState.isValid} type="submit">

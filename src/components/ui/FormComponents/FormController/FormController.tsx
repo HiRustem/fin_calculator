@@ -25,13 +25,13 @@ const FormController = <T,>({
             name={name}
             label={label}
             value={field.value}
-            {...props}
             onChange={
               onChangeHandler?.({ field, fieldState, formState }) ??
               field.onChange
             }
             error={fieldState.error?.message}
             {...maskedOptions}
+            {...props}
           />
         );
       }}

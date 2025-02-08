@@ -5,9 +5,10 @@ import { DatePickerContent } from "./ui";
 import IconCalendar from "@/assets/calendar.svg?react";
 
 import styles from "./DatePicker.module.scss";
+import { getISOFormattedString } from "./lib/getISOFormattedString";
 
 interface IDatePicker {
-  value: Date;
+  value: string;
   onChange: (newDate: Date) => void;
   trigger?: ReactNode;
   triggerClassName?: string;
@@ -21,8 +22,9 @@ const Datepicker = ({
   triggerClassName,
   fullWidthTrigger,
 }: IDatePicker) => {
-  const today = new Date();
-  const [selectedDate, setSelectedDate] = useState(value || today);
+  const [selectedDate, setSelectedDate] = useState(
+    new Date(getISOFormattedString(value))
+  );
   const [currentYear, setCurrentYear] = useState(selectedDate.getFullYear());
   const [currentMonth, setCurrentMonth] = useState(selectedDate.getMonth());
   const [isOpen, setIsOpen] = useState(false);

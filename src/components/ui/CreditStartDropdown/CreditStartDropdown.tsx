@@ -30,7 +30,7 @@ const CreditStartDropdown = ({ className }: ICreditStartDropdown) => {
           />
         }
         fullWidthTrigger={true}
-        value={new Date(creditStart)}
+        value={creditStart}
         onChange={(newDate) => {
           const formattedDate = getCreditStartDate(newDate);
 
