@@ -8,6 +8,7 @@
 
   .item {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 20px;
 
@@ -30,6 +31,22 @@
       flex-basis: 306px;
       flex-grow: 0;
       flex-shrink: 0;
+    }
+
+    .deleteButton {
+      width: fit-content;
+      height: fit-content;
+
+      .cross {
+        max-width: 25px;
+        min-width: 25px;
+        max-height: 25px;
+        min-height: 25px;
+
+        stroke-width: 2px;
+
+        color: var(--red);
+      }
     }
   }
 }

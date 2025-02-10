@@ -1,0 +1,31 @@
+.list {
+  width: 100%;
+  max-width: 306px;
+  min-width: 306px;
+
+  font-size: 18px;
+  line-height: 18px;
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 20px;
+
+    cursor: pointer;
+
+    &.selected {
+      font-weight: 700;
+    }
+
+    &:not(.selected) {
+      .button {
+        &:hover,
+        &:active {
+          color: var(--yellow);
+        }
+      }
+    }
+  }
+}

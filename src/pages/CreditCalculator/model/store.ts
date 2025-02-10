@@ -6,13 +6,14 @@ import {
   CalculatorType,
   CreditPartialRepayment,
   CreditPartialRepaymentItem,
+  CreditPartialType,
   CreditPeriodType,
   CreditRepaymentFrequency,
   CreditRepaymentProcedure,
 } from "./types";
 import { getCreditStartDate } from "@/utils/helpers/getFormattedDate";
 
-type ICreditCalculatorStoreState = {
+export type ICreditCalculatorStoreState = {
   calculatorType: CalculatorType;
   creditCurrency: CalculatorCurrency;
   creditPeriodType: CreditPeriodType;
@@ -41,6 +42,7 @@ type ICreditCalculatorStoreActions = {
   addPartialRepayment: () => void;
   deletePartialRepayment: (id: number) => void;
   setPartialRepayment: (id: number, date: string, sum: string) => void;
+  setCreditPartialRepaymentType: (value: CreditPartialType) => void;
 };
 
 const creditCalculatorDefaultState: ICreditCalculatorStoreState = {
@@ -79,8 +81,6 @@ const useCreditCalculatorStore = create<
       newCreditPartialRepayment.creditPartialRepaymentArray =
         newCreditPartialRepaymentArray;
 
-      console.log(newCreditPartialRepayment);
-
       set({ creditPartialRepayment: { ...newCreditPartialRepayment } });
     },
     deletePartialRepayment: (id) => {
@@ -90,12 +90,12 @@ const useCreditCalculatorStore = create<
       ];
 
       const filteredArray = newPartialRepaymentArray.filter(
-        (item) => item.id === id
+        (item) => item.id !== id
       );
 
       newPartialRepayment.creditPartialRepaymentArray = filteredArray;
 
-      set({ creditPartialRepayment: newPartialRepayment });
+      set({ creditPartialRepayment: { ...newPartialRepayment } });
     },
     setPartialRepayment: (id, date, sum) => {
       const newCreditPartialRepayment = get().creditPartialRepayment;
@@ -110,6 +110,13 @@ const useCreditCalculatorStore = create<
         newCreditPartialRepaymentArray;
 
       set({ creditPartialRepayment: { ...newCreditPartialRepayment } });
+    },
+    setCreditPartialRepaymentType: (value) => {
+      const newCreditPartialRepayment = get().creditPartialRepayment;
+
+      newCreditPartialRepayment.creditPartialType = value;
+
+      set({ creditPartialRepayment: newCreditPartialRepayment });
     },
     ...creditCalculatorDefaultState,
   }))

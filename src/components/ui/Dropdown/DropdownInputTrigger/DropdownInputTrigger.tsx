@@ -11,13 +11,14 @@ const DropdownInputTrigger = ({
   rightIcon,
   label,
   className,
+  textClassName,
 }: IDropdownInputTrigger) => {
   return (
     <div className={styles.container}>
       <div className={clsx(styles.wrapper, className)}>
         <div className={styles.container}>
           <div className={styles.buttonWrapper}>
-            <div className={styles.text}>{selected}</div>
+            <div className={clsx(styles.text, textClassName)}>{selected}</div>
 
             {rightIcon ?? (
               <IconChevronDown

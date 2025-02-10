@@ -4,5 +4,7 @@ declare const classNames: {
   readonly datePicker: "datePicker";
   readonly icon: "icon";
   readonly input: "input";
+  readonly deleteButton: "deleteButton";
+  readonly cross: "cross";
 };
 export = classNames;

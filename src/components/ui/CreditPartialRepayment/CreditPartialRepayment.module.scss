@@ -4,10 +4,26 @@
     flex-direction: column;
     gap: 20px;
 
-    .repaymentsHeading {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 20px;
+    .repaymentsHeadingContainer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .repaymentsHeading {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 20px;
+      }
+
+      .repaymentsTypeWrapper {
+        max-width: 306px;
+        min-width: 306px;
+
+        .repaymentsTypeDropdownText {
+          font-size: 16px;
+          line-height: 16px;
+        }
+      }
     }
 
     .icon {

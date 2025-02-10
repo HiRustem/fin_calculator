@@ -16,6 +16,9 @@
     column-gap: 10px;
 
     .formField {
+      display: flex;
+      align-items: center;
+
       flex-basis: 306px;
       flex-grow: 0;
       flex-shrink: 0;

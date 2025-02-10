@@ -23,4 +23,5 @@ export interface IDropdownTrigger {
 export interface IDropdownInputTrigger extends IDropdownTrigger {
   rightIcon?: ReactNode;
   label?: string;
+  textClassName?: string;
 }

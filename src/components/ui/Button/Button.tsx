@@ -4,7 +4,7 @@ import clsx from "clsx";
 import styles from "./Button.module.scss";
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
+  text?: string;
   icon?: ReactNode;
   className?: string;
 }
