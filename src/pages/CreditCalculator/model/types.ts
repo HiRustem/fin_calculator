@@ -1,3 +1,5 @@
+import { ICreditCalculatorStoreState } from "./store";
+
 export type CalculatorType = "creditSum" | "creditPay";
 
 export type CalculatorCurrency = "₽" | "$" | "€";
@@ -22,3 +24,26 @@ export interface CreditPartialRepaymentItem {
 export type CreditPartialType =
   | "с сохранением суммы платежа"
   | "с сохранением срока кредита";
+
+export interface IPaymentScheduleItem {
+  date: string;
+  payment: number;
+  interest: number;
+  principal: number;
+  remainingDebt: number;
+}
+
+export type CalculateCreditSchedule = Pick<
+  ICreditCalculatorStoreState,
+  | "creditAmount"
+  | "creditPercent"
+  | "creditPeriod"
+  | "creditPeriodType"
+  | "creditRepaymentProcedure"
+  | "creditRepaymentFrequency"
+  | "creditRescheduleOnMonday"
+  | "creditEarlyRepayment"
+  | "creditEarlyRepaymentDate"
+  | "creditPartialRepayment"
+  | "creditStart"
+>;

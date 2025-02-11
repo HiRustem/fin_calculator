@@ -27,17 +27,20 @@ import CreditRepaymentFrequency from "../ui/CreditRepaymentFrequency/CreditRepay
 import FormCheckbox from "../ui/FormComponents/FormCheckbox/FormCheckbox";
 import { CreditEarlyRepaymentDate } from "../ui/CreditEarlyRepaymentDate";
 import { getCreditStartDate } from "@/utils/helpers/getFormattedDate";
+import calculateCreditSchedule from "@/pages/CreditCalculator/lib/calculate-schedule";
 
 const CreditCalculatorForm = () => {
   // const [, setCurrency] = useState<string>("₽");
 
   const {
+    getValue,
     setValue,
     creditPeriodType,
     creditRescheduleOnMonday,
     creditEarlyRepayment,
   } = useCreditCalculatorStore(
     useShallow((state) => ({
+      getValue: state.getValue,
       setValue: state.setValue,
       creditPeriodType: state.creditPeriodType,
       creditRescheduleOnMonday: state.creditRescheduleOnMonday,
@@ -54,7 +57,33 @@ const CreditCalculatorForm = () => {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log(methods.getValues());
+    const creditAmount = getValue("creditAmount");
+    const creditPercent = getValue("creditPercent");
+    const creditPeriod = getValue("creditPeriod");
+    const creditPeriodType = getValue("creditPeriodType");
+    const creditRepaymentProcedure = getValue("creditRepaymentProcedure");
+    const creditRepaymentFrequency = getValue("creditRepaymentFrequency");
+    const creditRescheduleOnMonday = getValue("creditRescheduleOnMonday");
+    const creditEarlyRepayment = getValue("creditEarlyRepayment");
+    const creditEarlyRepaymentDate = getValue("creditEarlyRepaymentDate");
+    const creditPartialRepayment = getValue("creditPartialRepayment");
+    const creditStart = getValue("creditStart");
+
+    const schedule = calculateCreditSchedule({
+      creditAmount,
+      creditPercent,
+      creditPeriod,
+      creditPeriodType,
+      creditRepaymentProcedure,
+      creditRepaymentFrequency,
+      creditRescheduleOnMonday,
+      creditEarlyRepayment,
+      creditEarlyRepaymentDate,
+      creditPartialRepayment,
+      creditStart,
+    });
+
+    console.log(schedule);
 
     methods.handleSubmit(() => {});
   };

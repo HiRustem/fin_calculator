@@ -49,7 +49,7 @@ const creditCalculatorDefaultState: ICreditCalculatorStoreState = {
   calculatorType: "creditSum",
   creditCurrency: "₽",
   creditPeriodType: "года",
-  creditRepaymentProcedure: "Дифференцированный",
+  creditRepaymentProcedure: "Аннуитентый",
   creditRepaymentFrequency: "Ежемесячно",
   ...creditCalculatorDefaultValues,
 };
